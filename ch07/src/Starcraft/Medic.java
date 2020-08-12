@@ -3,28 +3,28 @@ package Starcraft;
 class Medic extends Unit implements Boardable, Healable {
 	
 	Medic() {
-		super(40); // ¸ÞµñÀÇ max hp °ª
+		super(40); // ï¿½Þµï¿½ï¿½ï¿½ max hp ï¿½ï¿½
 	}
 
 	public void move_sound() {
-		System.out.println("¸Þµñ°£´Ù.");
+		System.out.println("ë©”ë”•ê°„ë‹¤.");
 
 	}
 
 	public void attack_sound() {
-		System.out.println("¸Þµñ°ø°ÝÇÑ´Ù.");
+		System.out.println("ë©”ë”•ê³µê²©í•œë‹¤.");
 
 	}
 
-	public void heal(Healable r) // Healable À» implementsÇÑ À¯´Öµé ¾Æ¹«°Å³ª ¹ÞÀ»¼öÀÖ´Ù. 
+	public void heal(Healable r) // Healable ï¿½ï¿½ implementsï¿½ï¿½ ï¿½ï¿½ï¿½Öµï¿½ ï¿½Æ¹ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½. 
 	{
-		Unit u = (Unit)r; // Unit ·Î ÂüÁ¶º¯¼ö ¼±¾ðÇß±â¶§¹®¿¡ r À» unit ÇüÀ¸·Î Çüº¯È¯ÇØÁØ´Ù.
-		while (u.hitPoint != u.MAX_HP) // max hp °¡ µÉ¶§±îÁö
+		Unit u = (Unit)r; // Unit ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß±â¶§ï¿½ï¿½ï¿½ï¿½ r ï¿½ï¿½ unit ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½ï¿½Ø´ï¿½.
+		while (u.hitPoint != u.MAX_HP) // max hp ï¿½ï¿½ ï¿½É¶ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
-			u.hitPoint++; // hitpoint¸¦ Áõ°¡½ÃÅ²´Ù.
-			System.out.println("Ä¡·áÁß..:>" + u.hitPoint);
+			u.hitPoint++; // hitpointï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å²ï¿½ï¿½.
+			System.out.println("ì¹˜ë£Œì¦..:>" + u.hitPoint);
 		}
-		System.out.println("Ä¡·á¿Ï·á");
+		System.out.println("ì¹˜ë£Œì™„ë£Œ");
 		
 		if ( r instanceof Marine) {
 			Marine m = (Marine)r;

@@ -3,6 +3,7 @@ package Starcraft;
 interface Repairable {}
 interface Boardable {}
 interface Healable {}
+interface countUp {}
 
 public class semi_Exam01 {
 
@@ -15,16 +16,16 @@ public class semi_Exam01 {
 		DropShip ds = new DropShip();
 		FiarBat fb = new FiarBat();
 
-		ds.hitPoint = 90; // µ¥¹ÌÁö »óÅÂÀÇ HP
+		ds.hitPoint = 90; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ HP
 		t.hitPoint = 140;
 		m.hitPoint = 30;
 		fb.hitPoint = 34;
 
-		md.heal(m); // ¸ÞµñÀ¸·Î ¸¶¸°À» Ä¡·áÇØÁØ´Ù.
-		ds.tab(m); // µå·Ó½±À¸·Î ¸¶¸°À» ÅÂ¿î´Ù.
+		md.heal(m); // ï¿½Þµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
+		ds.tab(m); // ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¿ï¿½ï¿½.
 		ds.drop(m);
 		s.repair(t);
-		s.repair(ds); // scv ·Î drop shipÀ» ÅÂ¿î´Ù.
+		s.repair(ds); // scv ï¿½ï¿½ drop shipï¿½ï¿½ ï¿½Â¿ï¿½ï¿½.
 		s.repair(s);
 		md.heal(fb);
 
@@ -35,6 +36,6 @@ public class semi_Exam01 {
 
 		t.mode_sound();
 		t.ok_sound();
-		
+		t.countUp();
 	}
 }

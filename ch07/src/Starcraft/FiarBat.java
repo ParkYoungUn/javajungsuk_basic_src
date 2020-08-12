@@ -7,11 +7,11 @@ class FiarBat extends Unit implements Healable {
 	}
 	
 	public void move_sound() {
-		System.out.println("ÆÄÀÌ¾îºª ¿òÁ÷ÀÎ´Ù.!");
+		System.out.println("íŒŒì´ì–´ë²³ ì´ë™ì¤‘!");
 	}
 	
 	public void attack_sound() {
-		System.out.println("ºÒºÒºÒºÒ");
+		System.out.println("ë¶ˆë¶ˆë¶ˆ");
 	}
 
 }

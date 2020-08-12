@@ -1,6 +1,6 @@
 package Starcraft;
 
-class Tank extends Unit implements Repairable, Boardable {
+class Tank extends Unit implements Repairable, Boardable, countUp {
 	Tank() {
 		super(150);
 	}
@@ -12,9 +12,19 @@ class Tank extends Unit implements Repairable, Boardable {
 	public void attack_sound() {
 		System.out.println("kwang");
 	}
-	
 
 	public void mode_sound() {
 		System.out.println("wung");
+	}
+	public void countUp() {
+		
+		for (int i=0 ; i<5 ; i++) {
+			System.out.println(".. "+i);
+			try {
+			    Thread.sleep(500);
+			} catch(InterruptedException e){
+			    e.printStackTrace();
+			}
+		}
 	}
 }

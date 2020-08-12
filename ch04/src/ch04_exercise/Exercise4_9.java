@@ -7,7 +7,8 @@ public class Exercise4_9 {
 		int sum = 0;
 		
 		for (int i=0 ; i<5 ; i++) {
-			sum +=num;
+			sum +=(num%10);
+			num/=10;
 		}
 		
 		System.out.println("sum = " + sum);

@@ -2,7 +2,7 @@ package Starcraft;
 
 class Marine extends Unit implements Boardable, Healable {
 	Marine() {
-		super(40); // ¸¶¸°ÀÇ max hp °ª
+		super(40); // ë§ˆë¦°ì˜ MAX HPê°’
 	}
 
 	public void move_sound() {

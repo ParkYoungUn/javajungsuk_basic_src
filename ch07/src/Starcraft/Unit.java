@@ -17,7 +17,7 @@ abstract class Unit {
 	int hitPoint;
 
 	Unit(int hp) {
-		MAX_HP = hp; // max hp °ª
+		MAX_HP = hp; // max hp ê°’
 	}
 
 }

@@ -27,10 +27,10 @@ class DropShip extends Unit implements Repairable, Boardable {
 			un[i].attack_sound();
 			System.out.println("a");
 		}
-		System.out.println("ÅÂ¿üÁ´");
+		System.out.println("íƒœì› ë‹¤");
 	}
 	
 	public void drop(Boardable b) {
-		System.out.println("³»·ÈÁ´");
+		System.out.println("ë‚´ë¦°ë‹¤");
 	}
 }

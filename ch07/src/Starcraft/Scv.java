@@ -18,8 +18,8 @@ class Scv extends Unit implements Repairable, Boardable, Healable {
 		Unit u = (Unit) r;
 		while (u.hitPoint != u.MAX_HP) {
 			u.hitPoint++;
-			System.out.println("¼ö¸® Áß..:>" + u.hitPoint);
+			System.out.println("ìˆ˜ë¦¬ì¤‘..:>" + u.hitPoint);
 		}
-		System.out.println("¼ö¸®¿Ï·á");
+		System.out.println("ìˆ˜ë¦¬ì™„ë£Œ");
 	}
 }
