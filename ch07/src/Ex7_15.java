@@ -10,22 +10,26 @@ class Outer2 {
 
 	void myMethod() {
 		class LocalInner {
-			int iv = 400;
+			int iv = 400;	
 		}
+		
+		LocalInner LI = new LocalInner();
+		System.out.println(LI.iv);
 	}
 }
 
 class Ex7_15 {
 	public static void main(String[] args) {
-		// ÀÎ½ºÅÏ½ºÅ¬·¡½ºÀÇ ÀÎ½ºÅÏ½º¸¦ »ı¼ºÇÏ·Á¸é
-		// ¿ÜºÎ Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º¸¦ ¸ÕÀú »ı¼ºÇØ¾ß ÇÑ´Ù.
+		// ì¸ìŠ¤í„´ìŠ¤í´ë˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ìƒì„±í•˜ë ¤ë©´
+		// ì™¸ë¶€ í´ë˜ìŠ¤ì˜ ì¸ìŠ¤í„´ìŠ¤ë¥¼ ë¨¼ì € ìƒì„±í•´ì•¼í•œë‹¤.
 		Outer2 oc = new Outer2();
 		Outer2.InstanceInner ii = oc.new InstanceInner();
-
+		
+		oc.myMethod();
 		System.out.println("ii.iv : "+ ii.iv);
 		System.out.println("Outer2.StaticInner.cv : "+Outer2.StaticInner.cv);
                                      
-	   // ½ºÅÂÆ½ ³»ºÎ Å¬·¡½ºÀÇ ÀÎ½ºÅÏ½º´Â ¿ÜºÎ Å¬·¡½º¸¦ ¸ÕÀú »ı¼ºÇÏÁö ¾Ê¾Æµµ µÈ´Ù.
+	   // ìŠ¤íƒœí‹± ë‚´ë¶€ í´ë˜ìŠ¤ ì¸ìŠ¤í„´ìŠ¤ëŠ” ì™¸ë¶€ í´ë˜ìŠ¤ë¥¼ ë¨¼ì € ìƒì„±í•˜ì§€ ì•Šì•„ë„ ëœë‹¤.
 		Outer2.StaticInner si = new Outer2.StaticInner();
 		System.out.println("si.iv : "+ si.iv);
 	}
