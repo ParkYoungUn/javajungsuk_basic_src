@@ -3,10 +3,10 @@ class Ex8_2 {
 			System.out.println(1);
 			try {
 				System.out.println(0/0);
-				System.out.println(2); 	// ½ÇÇàµÇÁö ¾Ê´Â´Ù.
+				System.out.println(2); 	// 	ì‹¤í–‰ë˜ì§€ ì•ŠëŠ”ë‹¤.
 			} catch (ArithmeticException ae)	{
 				System.out.println(3);
-			}	// try-catchÀÇ ³¡
+			}	// try-catchì˜ ë
 			System.out.println(4);
-	}	// main¸Ş¼­µåÀÇ ³¡
+	}	// mainë©”ì„œë“œì˜ ë
 }

@@ -1,21 +1,29 @@
 import java.io.*;
 
-class Ex8_10 {
+class MyException extends Exception {
+	MyException(String msg){
+		super(msg);
+	}
+}
+
+class Ex8_10 { //íŒŒì¼ ë§Œë“œëŠ” ì˜ˆì œ
 	public static void main(String[] args) {
 		try {
 			File f = createFile(args[0]);
-			System.out.println( f.getName()+"ÆÄÀÏÀÌ ¼º°øÀûÀ¸·Î »ı¼ºµÇ¾ú½À´Ï´Ù.");
+			System.out.println( f.getName()+"íŒŒì¼ì´ ì„±ê³µì ìœ¼ë¡œ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		} catch (MyException Mye) {
+			System.out.println(Mye);
 		} catch (Exception e) {
-			System.out.println(e.getMessage()+" ´Ù½Ã ÀÔ·ÂÇØ ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.");
+			System.out.println(e.getMessage()+" ë‹¤ì‹œ ì…ë ¥í•´ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.");
 		}
-	}	// main¸Ş¼­µåÀÇ ³¡
+	}	// mainë©”ì„œë“œì˜ ë
 
 	static File createFile(String fileName) throws Exception {
 		if (fileName==null || fileName.equals(""))
-			throw new Exception("ÆÄÀÏÀÌ¸§ÀÌ À¯È¿ÇÏÁö ¾Ê½À´Ï´Ù.");
-		File f = new File(fileName);		//  FileÅ¬·¡½ºÀÇ °´Ã¼¸¦ ¸¸µç´Ù.
-     	// File°´Ã¼ÀÇ createNewFile¸Ş¼­µå¸¦ ÀÌ¿ëÇØ¼­ ½ÇÁ¦ ÆÄÀÏÀ» »ı¼ºÇÑ´Ù.
-		f.createNewFile();
-		return f;		// »ı¼ºµÈ °´Ã¼ÀÇ ÂüÁ¶¸¦ ¹İÈ¯ÇÑ´Ù.
-	}	// createFile¸Ş¼­µåÀÇ ³¡
-}	// Å¬·¡½ºÀÇ ³¡
+			throw new Exception("íŒŒì¼ì´ë¦„ì´ ìœ íš¨í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+		File f = new File(fileName);		//  Fileí´ë˜ìŠ¤ì˜ ê°ì²´ë¥¼ ë§Œë“ ë‹¤.
+     	// Fileê°ì²´ì˜ createNewFileë©”ì„œë“œë¥¼ ì´ìš©í•´ì„œ ì‹¤ì œ íŒŒì¼ì„ ìƒì„±í•œë‹¤.
+		f.createNewFile(); // Run configurationsì—ì„œ íŒŒì¼ëª…ì„ ì…ë ¥ë°›ëŠ”ë‹¤.
+		return f;		// ìƒì„±ëœ ê°ì²´ì˜ ì°¸ì¡°ë¥¼ ë°˜í™˜í•œë‹¤.
+	}	// createFileë©”ì„œë“œì˜ ë
+}	// í´ë˜ìŠ¤ì˜ ë
