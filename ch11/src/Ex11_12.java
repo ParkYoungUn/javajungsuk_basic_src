@@ -38,8 +38,8 @@ class Ex11_12 {
 		while(it.hasNext())
 			setHab.add(it.next());
 
-		System.out.println("A ¡û B = " + setKyo);  // ÇÑ±Û ¤§À» ´©¸£°í ÇÑÀÚÅ°
-		System.out.println("A U B = " + setHab);  // ÇÑ±Û ¤§À» ´©¸£°í ÇÑÀÚÅ°
+		System.out.println("A âˆ© B = " + setKyo);  // í•œê¸€ ã„·ì„ ëˆ„ë¥´ê³  í•œìí‚¤
+		System.out.println("A U B = " + setHab);  // í•œê¸€ ã„·ì„ ëˆ„ë¥´ê³  í•œìí‚¤
 		System.out.println("A - B = " + setCha); 
 	}
 }
