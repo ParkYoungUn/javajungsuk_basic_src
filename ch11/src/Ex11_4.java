@@ -11,7 +11,7 @@ class Ex11_4 {
 			System.out.print(">>");
 			try {
 				// 화면으로부터 라인단위로 입력받는다.
-				Scanner s = new Scanner(System.in);  
+				Scanner s = new Scanner(System.in);
 				String input = s.nextLine().trim();
 
 				if("".equals(input)) continue;

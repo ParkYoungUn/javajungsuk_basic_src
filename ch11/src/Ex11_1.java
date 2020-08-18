@@ -2,9 +2,10 @@ import java.util.*;
 
 class Ex11_1 {
 	public static void main(String[] args) {
-		static ArrayLest list1;
 		ArrayList list1 = new ArrayList(10);
-		list1.add(new AddrBook(1,"이종철","수원","111-1111"));
+		//static ArrayLest list1;
+		//list1.add(new AddrBook(1,"이종철","수원","111-1111"));
+		list1.add(new Integer(5));
 		list1.add(new Integer(4));
 		list1.add(new Integer(2));
 		list1.add(new Integer(0));
@@ -31,7 +32,7 @@ class Ex11_1 {
 
 		// list1에서 list2와 겹치는 부분만 남기고 나머지는 삭제한다.
 		System.out.println("list1.retainAll(list2):" + list1.retainAll(list2));
-
+		Vector
 		print(list1, list2);
 
 		//  list2에서 list1에 포함된 객체들을 삭제한다.

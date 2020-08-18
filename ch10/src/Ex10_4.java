@@ -3,7 +3,7 @@ import java.util.*;
 class Ex10_4 {
 	public static void main(String[] args) {
 		Calendar date = Calendar.getInstance();
-		date.set(2019, 7, 31);	// 2019년 8월 31일
+		date.set(2020, 7, 18);	// 2020년 8월 18일
 
 		System.out.println(toString(date));
 		System.out.println("= 1일 후 =");
