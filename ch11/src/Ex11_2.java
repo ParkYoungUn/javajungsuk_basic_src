@@ -3,7 +3,7 @@ import java.util.*;
 class Ex11_2 {
 	public static void main(String[] args) {
 		Stack st = new Stack();
-		Queue q = new LinkedList();	// QueueÀÎÅÍÆäÀÌ½ºÀÇ ±¸ÇöÃ¼ÀÎ LinkedList¸¦ »ç¿ë
+		Queue q = new LinkedList();	// Queueì¸í„°í˜ì´ìŠ¤ì˜ êµ¬í˜„ì²´ì¸ LinkedListë¥¼ ì‚¬ìš©
 		
 		st.push("0");
 		st.push("1");
@@ -15,12 +15,12 @@ class Ex11_2 {
 
 		System.out.println("= Stack =");
 		while(!st.empty()) {
-			System.out.println(st.pop()); // ½ºÅÃ¿¡¼­ ¿ä¼Ò ÇÏ³ª¸¦ ²¨³»¼­ Ãâ·Â
+			System.out.println(st.pop()); // ìŠ¤íƒì—ì„œ ìš”ì†Œ í•˜ë‚˜ë¥¼ êº¼ë‚´ì„œ ì¶œë ¥
 		}
 
 		System.out.println("= Queue =");
 		while(!q.isEmpty()) {
-			System.out.println(q.poll()); // Å¥¿¡¼­ ¿ä¼Ò ÇÏ³ª¸¦ ²¨³»¼­ Ãâ·Â
+			System.out.println(q.poll()); // íì—ì„œ ìš”ì†Œ í•˜ë‚˜ë¥¼ êº¼ë‚´ì„œ ì¶œë ¥
 		}
 	}
 }
