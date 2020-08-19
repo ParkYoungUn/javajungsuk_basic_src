@@ -3,11 +3,11 @@ import java.util.*;
 class Ex11_5 {
 	public static void main(String[] args) {
 		ArrayList list = new ArrayList();
-		list.add("1");
-		list.add("2");
-		list.add("3");
-		list.add("4");
-		list.add("5");
+		list.add("list  1");
+		list.add("list  2");
+		list.add("list  3");
+		list.add("list  4");
+		list.add("list  5");
 		
 		
 		Iterator it = list.iterator();
@@ -16,11 +16,12 @@ class Ex11_5 {
 			Object obj = it.next();
 			System.out.println(obj);
 		}
+		
 		System.out.println("--------");
 		
 		ArrayList list1 = new ArrayList();
 		for(int i=0; i<5 ; i++) {
-			list1.add(i+2);
+			list1.add("list1 "+(i+1));
 		}
 		
 		Iterator it1 = list1.iterator();
@@ -32,7 +33,7 @@ class Ex11_5 {
 		
 		LinkedList list2 = new LinkedList();
 		for(int i=0; i<5 ; i++) {
-			list2.add(i+3);
+			list2.add("list2 "+(i+1));
 		}
 		
 		Iterator it2 = list2.iterator();
