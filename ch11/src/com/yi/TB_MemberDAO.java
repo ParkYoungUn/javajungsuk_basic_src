@@ -88,7 +88,7 @@ public class TB_MemberDAO {
             cstmt.execute();
             ResultSet r =  (ResultSet) cstmt.getObject(2);
            
-            if(r.next()) {
+            while(r.next()) {
                 String m_no = r.getString("m_no");
                 String m_name = r.getString("m_name");
                 String m_ssn = r.getString("m_ssn");
