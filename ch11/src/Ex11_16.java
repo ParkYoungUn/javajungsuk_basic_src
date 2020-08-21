@@ -25,7 +25,8 @@ class Ex11_16 {
 				if(!(map.get(id)).equals(password)) {
 				    System.out.println("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
 				} else {
-					 System.out.println("id와 비밀번호가 일치합니다.");									 break;
+					 System.out.println("id와 비밀번호가 일치합니다.");
+					 break;
 				}
 			}
 		} // while

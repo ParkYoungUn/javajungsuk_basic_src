@@ -7,5 +7,7 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JDBC"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mybatis"/>
+	<classpathentry kind="lib" path="C:/Users/lenovo/eclipse-workspace/javajungsuk_basic_src/ch11/lib/mybatis-3.5.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

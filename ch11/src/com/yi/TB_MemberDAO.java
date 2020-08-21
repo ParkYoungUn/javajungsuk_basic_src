@@ -1,11 +1,11 @@
 package com.yi;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 //import oracle.jdbc.OracleCallableStatement;
@@ -13,11 +13,11 @@ import java.util.List;
 //import oracle.jdbc.oracore.OracleType;
  
 public class TB_MemberDAO {
-   
+	
     private static Connection conn;
-   
+
     private PreparedStatement pstmt;
-    private CallableStatement cstmt;
+    private Statement stmt;
     private ResultSet rs;
    
     //기본생성자
@@ -42,13 +42,13 @@ public class TB_MemberDAO {
     /**
     * 회원 등록하기
     */
-    public int insertMember(TB_MemberDTO dto){    
+    public int insertMember(TB_MemberDTO dto){
        
         int result=500; //내부 오류
        
         try {
             getConnection();
-           
+            
             String sql = "INSERT INTO TB_Member VALUES (?,?,?,?,?,CURRENT_TIMESTAMP)";
             pstmt = conn.prepareStatement(sql);
            
@@ -59,11 +59,11 @@ public class TB_MemberDAO {
             pstmt.setString(5,dto.getM_addr());
             pstmt.setString(6,dto.getM_registdate());
             
-            cstmt.registerOutParameter(4, java.sql.Types.NUMERIC); 
-           
-            int r = cstmt.executeUpdate();
-            int code = cstmt.getInt(4);        
-            result = code;
+//            cstmt.registerOutParameter(4, java.sql.Types.NUMERIC); 
+//           
+//            int r = cstmt.executeUpdate();
+//            int code = cstmt.getInt(4);        
+//            result = code;
            
         } catch (Exception e) {        
             System.out.println("예외발생:insertMember()=> "+e.getMessage());
@@ -71,7 +71,7 @@ public class TB_MemberDAO {
             dbClose();
         }      
         return result;
-    }      
+    }
    
     /**
     * 회원번호에 해당하는 회원정보 보기
@@ -80,21 +80,19 @@ public class TB_MemberDAO {
     	TB_MemberDTO dto =null;
         try {
             getConnection();
+            
+            String sql = "select * from TB_member" + "where neme = '"+no+"'"; 
+            rs = stmt.executeQuery(sql);
+            
            
-            String sql = "select * from TB_member" + "where neme = '"+no+"'";
-            cstmt = conn.prepareCall(sql);
-            cstmt.setString(1, no);
-            cstmt.registerOutParameter(2, OracleTypes.CURSOR); //커서타입으로 리턴받음.
-            cstmt.execute();
-            ResultSet r =  (ResultSet) cstmt.getObject(2);
-           
-            while(r.next()) {
-                String m_no = r.getString("m_no");
-                String m_name = r.getString("m_name");
-                String m_ssn = r.getString("m_ssn");
-                String m_phoneNum = r.getString("m_phoneNum");
-                String m_registdate = r.getDate("m_registdate").toString();
-                dto = new TB_MemberDTO(m_no, m_name, m_ssn, m_phoneNum, m_registdate);
+            while(rs.next()) {
+                String m_no = rs.getString("m_no");
+                String m_name = rs.getString("m_name");
+                String m_date = rs.getString("m_date");
+                String m_phoneNum = rs.getString("m_phoneNum");
+                String m_addr = rs.getString("m_addr");
+                String m_registdate = rs.getString("m_registdate");
+                dto = new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr,m_registdate);
             }
            
         } catch (Exception e) {
@@ -115,21 +113,20 @@ public class TB_MemberDAO {
         try {
             getConnection();
            
-            String sql = "{call SP_MEMBER_list(:rtn_list)}";
-           
-            cstmt = conn.prepareCall(sql);
-            cstmt.registerOutParameter(1, OracleTypes.CURSOR);
-            cstmt.execute();
-            //ResultSet r = ((OracleCallableStatement) pstmt).getCursor(2);
-            ResultSet r = (ResultSet) cstmt.getObject(1);
-           
-            while(r.next()) {
-                String m_no = r.getString("m_no");
-                String m_name = r.getString("m_name");
-                String m_ssn = r.getString("m_ssn");
-                String m_phoneNum = r.getString("m_phoneNum");
-                String m_registdate = r.getDate("m_registdate").toString();
-                list.add(new TB_MemberDAO(m_no, m_name, m_ssn, m_phoneNum, m_registdate));
+            String sql = "select * from TB_Member";
+            rs = stmt.executeQuery(sql);           
+            while(rs.next()) {
+            	
+                 String m_no = rs.getString("m_no");
+                 String m_name = rs.getString("m_name");
+                 String m_date = rs.getString("m_date");
+                 String m_phoneNum = rs.getString("m_phoneNum");
+                 String m_addr = rs.getString("m_addr");
+                 String m_registdate = rs.getString("m_registdate");
+                 //TB_MemberDTO m = new TB_MemberDTO();
+                 //m.setM_name(m_name);
+                list.add(new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr,m_registdate));
+                
             }
            
         } catch (Exception e) {
@@ -151,10 +148,10 @@ public class TB_MemberDAO {
         try {
             getConnection();
            
-            String sql = "INSERT INTO TB_Member VALUES (?,?,?,?,?,CURRENT_TIMESTAMP)";
+            String sql = "update TB_Member set m_name, m_date, m_phonNume, m_addr, m_registdate"
+            		+ "values(?,?,?,?,?) where m_no = '"+ dto.getM_no()+"'";
             pstmt = conn.prepareStatement(sql);
        
-           
             pstmt.setString(1,dto.getM_no());
             pstmt.setString(2,dto.getM_name());
             pstmt.setString(3,dto.getM_date());
@@ -162,12 +159,12 @@ public class TB_MemberDAO {
             pstmt.setString(5,dto.getM_addr());
             pstmt.setString(6,dto.getM_registdate());
             
-            pstmt.registerOutParameter(5, OracleTypes.NUMBER);         
+            //pstmt.registerOutParameter(5, OracleTypes.NUMBER);         
            
-            cstmt.execute();
-            int r = cstmt.getInt(5);
-            //System.out.println(r);
-            if(r==200) result = true;
+//            cstmt.execute();
+//            int r = cstmt.getInt(5);
+//            System.out.println(r);
+//            if(r==200) result = true;
            
            
         } catch (Exception e) {
@@ -183,18 +180,15 @@ public class TB_MemberDAO {
     /**
     * 회원 삭제
     */
-    public boolean deleteMember(String id){        
+    public boolean deleteMember(String m_no){        
         boolean result = false;            
         try {
             getConnection();
            
-            String sql = "{call SP_MEMBER_DELETE(:no, :rtn_cod)}";
-            cstmt = conn.prepareCall(sql);
-            cstmt.setString(1, id);
-            cstmt.registerOutParameter(2, OracleTypes.NUMBER);
-            cstmt.execute();
-            int r = cstmt.getInt(2);
-            if(r==200) result = true;
+            String sql = "delete from TB_Member where m_no=?";
+            pstmt = conn.prepareStatement(sql);
+
+            pstmt.setString(1, m_no);
            
         } catch (Exception e) {
             System.out.println("예외발생:deleteMember()=> "+e.getMessage());
@@ -224,11 +218,11 @@ public class TB_MemberDAO {
             }
         }
        
-        if (cstmt != null) {
+        if (stmt != null) {
             try {
-                cstmt.close();
+                stmt.close();
             } catch (SQLException e) {
-                System.out.println("예외:CallableStatement객체 close():" + e.getMessage());
+                System.out.println("예외:Statement객체 close():" + e.getMessage());
             }
         }      
        

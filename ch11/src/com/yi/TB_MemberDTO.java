@@ -2,6 +2,7 @@ package com.yi;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.Formatter;
 
 //회원 (한 명분의) 정보 저장용 자료형 클래스
 
@@ -15,6 +16,25 @@ public class TB_MemberDTO {
 	private String m_phoneNum;
 	private String m_addr;
 	private String m_registdate;
+	
+	TB_MemberDTO() { }
+	
+	TB_MemberDTO(String m_no, String m_name, String m_date, String m_phoneNum, String m_addr, String m_registdate) {
+		this.m_no = m_no;
+		this.m_name = m_name;
+		this.m_date = m_date;
+		this.m_phoneNum = m_phoneNum;
+		this.m_addr = m_addr;
+		this.m_registdate = m_registdate;
+	}
+	
+	TB_MemberDTO(String m_name, String m_date, String m_phoneNum, String m_addr, String m_registdate) {
+		this.m_name = m_name;
+		this.m_date = m_date;
+		this.m_phoneNum = m_phoneNum;
+		this.m_addr = m_addr;
+		this.m_registdate = m_registdate;
+	}
 	
 	public String getM_no() {
 		return m_no;
@@ -58,5 +78,24 @@ public class TB_MemberDTO {
 		this.m_registdate = m_registdate;
 	}
 	
+	
+	public String toString() {
+		Formatter fm = new Formatter();
+		String meminfo = fm.format("%5s\t  %-7s\t%-16s\t%-14s\t%-14s", m_no, m_name, m_date, m_phoneNum, m_addr, m_registdate).toString();
+		return meminfo;
+	}
+	
+	public String getInfo() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("\r\n");
+		sb.append("[ "+m_no+ " ] 회원님의 정보====\n");
+		sb.append("이    름 : "+m_name+"\n");
+		sb.append("생년월일 : "+m_date+"\n");
+		sb.append("전화번호 : "+m_phoneNum+"\n");
+		sb.append("회원주소 : "+m_addr+"\n");
+		sb.append("등록일자 : "+m_registdate+"\n");
+				
+		return sb.toString();
+	}
 	
 }
