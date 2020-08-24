@@ -30,6 +30,9 @@ public class TB_MemberProc {
 		
 		System.out.println("회원정보를 입력해주세요.");
 		
+		System.out.print("▶번호 : ");
+		String m_no = reInput(scn);
+		
 		System.out.print("▶이름 : ");
 		String m_name = reInput(scn);
 		
@@ -38,15 +41,15 @@ public class TB_MemberProc {
 		
 		
 		System.out.print("▶휴대번호 : ");
-		String m_phonNume = reInput(scn);	
+		String m_phoneNum = reInput(scn);	
 		
 		System.out.print("▶주소 : ");
 		String m_addr = reInput(scn);	
+		System.out.println("제발1");
+//		System.out.print("▶등록일 : ");
+//		String m_registdate = reInput(scn);	
 		
-		System.out.print("▶등록일 : ");
-		String m_registdate = reInput(scn);	
-		
-		TB_MemberDTO dto = new TB_MemberDTO(m_name, m_date, m_phonNume, m_addr, m_registdate);
+		TB_MemberDTO dto = new TB_MemberDTO(m_no , m_name, m_date, m_phoneNum, m_addr);
 		int r = dao.insertMember(dto); //입력받은 데이터 추가
 		
 		if(r==200){
@@ -69,7 +72,7 @@ public class TB_MemberProc {
 		System.out.println("                             Member List");
 		System.out.println("============================================================================");
 		if(list!=null&&list.size()>0){			
-			System.out.println("reg.No\t  이름 \t\t주민번호\t\t연락처\t\t등록일");
+			System.out.println("reg.No\t  이름 \t\t주민번호\t\t연락처\t\t주소");
 			System.out.println("============================================================================");
 			
 			for (TB_MemberDTO dto : list){
@@ -91,8 +94,10 @@ public class TB_MemberProc {
 		Scanner scn = new Scanner(System.in);
 		System.out.println("수정할 회원의 회원등록번호를 입력해주세요"); 
 		System.out.print("▶");
+		
 		String m_no = scn.nextLine();
 		TB_MemberDTO dto = dao.getMember(m_no);
+		
 		if (dto!=null) {
 			
 			System.out.println(dto.getInfo());
@@ -118,11 +123,7 @@ public class TB_MemberProc {
 				String m_addr = scn.nextLine();
 				if(m_addr.trim().equals("")) m_addr=dto.getM_phoneNum();
 				
-				System.out.print("▶수정할 주소 : ");
-				String m_registdate = scn.nextLine();
-				if(m_registdate.trim().equals("")) m_registdate=dto.getM_phoneNum();
-				
-				dto =  new TB_MemberDTO(m_no, m_name, m_date, phoneNum, m_addr, m_registdate);
+				dto =  new TB_MemberDTO(m_no, m_name, m_date, phoneNum, m_addr);
 				
 				boolean r = dao.updateMember(dto);
 				
@@ -155,7 +156,9 @@ public class TB_MemberProc {
 		System.out.println("삭제할 회원의 회원등록번호를 입력해주세요");
 		String no = scn.nextLine();
 		TB_MemberDTO dto = dao.getMember(no);
+		
 		if (dto!=null) {
+			
 			System.out.println(dto.getInfo());
 			
 			System.out.println("위 회원의 정보를 정말로 삭제하시겠습니까?(Y/N)");
@@ -164,7 +167,7 @@ public class TB_MemberProc {
 				boolean r = dao.deleteMember(no);
 				
 				if(r){
-					System.out.println(no+"회원의 정보가 정상적으로 삭제되었습니다.");
+					System.out.println(no+" 회원의 정보가 정상적으로 삭제되었습니다.");
 				}else{
 					System.out.println("회원의 정보가 정상적으로 삭제 되지 않았습니다.");
 				}

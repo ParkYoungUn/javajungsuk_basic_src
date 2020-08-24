@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 //import oracle.jdbc.OracleCallableStatement;
 //import oracle.jdbc.OracleTypes;
@@ -49,22 +51,26 @@ public class TB_MemberDAO {
         try {
             getConnection();
             
-            String sql = "INSERT INTO TB_Member VALUES (?,?,?,?,?,CURRENT_TIMESTAMP)";
+            String sql = "INSERT INTO TB_Member(m_no, m_name, m_date, m_phoneNum, m_addr) VALUES (?,?,?,?,?)";
             pstmt = conn.prepareStatement(sql);
-           
+            
             pstmt.setString(1,dto.getM_no());
             pstmt.setString(2,dto.getM_name());
             pstmt.setString(3,dto.getM_date());
             pstmt.setString(4,dto.getM_phoneNum());
             pstmt.setString(5,dto.getM_addr());
-            pstmt.setString(6,dto.getM_registdate());
+            System.out.println("5");
+           // pstmt.setString(6,dto.getM_registdate());
+            int count = pstmt.executeUpdate();
             
-//            cstmt.registerOutParameter(4, java.sql.Types.NUMERIC); 
-//           
-//            int r = cstmt.executeUpdate();
-//            int code = cstmt.getInt(4);        
-//            result = code;
-           
+            if (count == 0) {
+            	System.out.println("입력 실패");
+            } else {
+            	System.out.println("입력 성공");
+            	result = 200;
+            }
+            
+            
         } catch (Exception e) {        
             System.out.println("예외발생:insertMember()=> "+e.getMessage());
         }finally{          
@@ -78,21 +84,23 @@ public class TB_MemberDAO {
     */
     public TB_MemberDTO getMember(String no){
     	TB_MemberDTO dto =null;
+    	
         try {
             getConnection();
             
-            String sql = "select * from TB_member" + "where neme = '"+no+"'"; 
+            String sql = "select * from tb_member where m_no = '"+no+"'"; 
+            stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);
-            
            
             while(rs.next()) {
+            	
                 String m_no = rs.getString("m_no");
                 String m_name = rs.getString("m_name");
                 String m_date = rs.getString("m_date");
                 String m_phoneNum = rs.getString("m_phoneNum");
                 String m_addr = rs.getString("m_addr");
-                String m_registdate = rs.getString("m_registdate");
-                dto = new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr,m_registdate);
+                dto = new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr);
+                
             }
            
         } catch (Exception e) {
@@ -114,6 +122,7 @@ public class TB_MemberDAO {
             getConnection();
            
             String sql = "select * from TB_Member";
+            stmt = conn.createStatement();
             rs = stmt.executeQuery(sql);           
             while(rs.next()) {
             	
@@ -122,10 +131,9 @@ public class TB_MemberDAO {
                  String m_date = rs.getString("m_date");
                  String m_phoneNum = rs.getString("m_phoneNum");
                  String m_addr = rs.getString("m_addr");
-                 String m_registdate = rs.getString("m_registdate");
                  //TB_MemberDTO m = new TB_MemberDTO();
                  //m.setM_name(m_name);
-                list.add(new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr,m_registdate));
+                list.add(new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr));
                 
             }
            
@@ -148,24 +156,22 @@ public class TB_MemberDAO {
         try {
             getConnection();
            
-            String sql = "update TB_Member set m_name, m_date, m_phonNume, m_addr, m_registdate"
-            		+ "values(?,?,?,?,?) where m_no = '"+ dto.getM_no()+"'";
+            String sql = "update TB_Member set m_name =?, m_date= ?, m_phoneNum=?, m_addr=? where m_no = ?";
             pstmt = conn.prepareStatement(sql);
        
-            pstmt.setString(1,dto.getM_no());
-            pstmt.setString(2,dto.getM_name());
-            pstmt.setString(3,dto.getM_date());
-            pstmt.setString(4,dto.getM_phoneNum());
-            pstmt.setString(5,dto.getM_addr());
-            pstmt.setString(6,dto.getM_registdate());
             
-            //pstmt.registerOutParameter(5, OracleTypes.NUMBER);         
-           
-//            cstmt.execute();
-//            int r = cstmt.getInt(5);
-//            System.out.println(r);
-//            if(r==200) result = true;
-           
+            pstmt.setString(1,dto.getM_name());
+            pstmt.setString(2,dto.getM_date());
+            pstmt.setString(3,dto.getM_phoneNum());
+            pstmt.setString(4,dto.getM_addr());
+            pstmt.setString(5,dto.getM_no());
+            
+            int count = pstmt.executeUpdate();
+            if (count == 0 ) {
+            	System.out.println("실패");
+            } else {
+            	result = true;
+            }
            
         } catch (Exception e) {
             System.out.println("예외발생:updateMember()=> "+e.getMessage());
@@ -190,6 +196,13 @@ public class TB_MemberDAO {
 
             pstmt.setString(1, m_no);
            
+            int count = pstmt.executeUpdate();
+            if (count == 0) {
+            	System.out.println("실패");
+            } else {
+            	result = true;
+            }
+            
         } catch (Exception e) {
             System.out.println("예외발생:deleteMember()=> "+e.getMessage());
         }finally{          

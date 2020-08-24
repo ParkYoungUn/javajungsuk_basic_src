@@ -14,14 +14,14 @@ class Ex12_3 {
 		FruitBox<Fruit> fruitBox = new FruitBox<Fruit>();
 		FruitBox<Apple> appleBox = new FruitBox<Apple>();
 		FruitBox<Grape> grapeBox = new FruitBox<Grape>();
-//		FruitBox<Grape> grapeBox = new FruitBox<Apple>(); // ¿¡·¯. Å¸ÀÔ ºÒÀÏÄ¡
-//		FruitBox<Toy>   toyBox   = new FruitBox<Toy>();   // ¿¡·¯.
+//		FruitBox<Grape> grapeBox = new FruitBox<Apple>(); // ì—ëŸ¬. íƒ€ì… ë¶ˆì¼ì¹˜
+//		FruitBox<Toy>   toyBox   = new FruitBox<Toy>();   // ì—ëŸ¬.
 
 		fruitBox.add(new Fruit());
 		fruitBox.add(new Apple());
 		fruitBox.add(new Grape());
 		appleBox.add(new Apple());
-//		appleBox.add(new Grape());  // ¿¡·¯. Grape´Â AppleÀÇ ÀÚ¼ÕÀÌ ¾Æ´Ô
+//		appleBox.add(new Grape());  // ì—ëŸ¬. GrapeëŠ” Appleì˜ ìì†ì´ ì•„ë‹˜
 		grapeBox.add(new Grape());
 
 		System.out.println("fruitBox-"+fruitBox);
