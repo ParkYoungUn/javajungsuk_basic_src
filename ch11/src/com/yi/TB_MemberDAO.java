@@ -59,7 +59,7 @@ public class TB_MemberDAO {
             pstmt.setString(3,dto.getM_date());
             pstmt.setString(4,dto.getM_phoneNum());
             pstmt.setString(5,dto.getM_addr());
-            System.out.println("5");
+            
            // pstmt.setString(6,dto.getM_registdate());
             int count = pstmt.executeUpdate();
             

@@ -19,15 +19,15 @@ public class Exercise5_6 {
 				question[idx] = tmp;
 			}
 			
-			System.out.printf("Q%d. %sÀÇ Á¤´äÀ» ÀÔ·ÂÇÏ¼¼¿ä.>", i+1,new String(question));
+			System.out.printf("Q%d. %sì˜ ì •ë‹µì„ ì…ë ¥í•˜ì„¸ìš”.>", i+1,new String(question));
 			
 			String answer = scanner.nextLine();
 			
-			// trim()À¸·Î answerÀÇ ÁÂ¿ì °ø¹éÀ» Á¦°ÅÇÑ ÈÄ, equals·Î word[i]¿Í ºñ±³ 
+			// trim()ìœ¼ë¡œ answerì˜ ì¢Œìš° ê³µë°±ì„ ì œê±°í•œ í›„, equalsë¡œ word[i]ì™€ ë¹„êµ 
 			if (words[i].equals(answer.trim())){
-				System.out.println("¸Â¾Ò½À´Ï´Ù.\n\n");
+				System.out.println("ë§ì•˜ìŠµë‹ˆë‹¤.\n\n");
 			} else {
-				System.out.println("Æ²·Ç½À´Ï´Ù.\n\n");
+				System.out.println("í‹€ë ·ìŠµë‹ˆë‹¤.\n\n");
 			}
 			
 		}

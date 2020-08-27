@@ -5,8 +5,10 @@ class Ex13_5 {
 		ThreadEx5_1 th1 = new ThreadEx5_1();
 		th1.start();
 
-		String input = JOptionPane.showInputDialog("�ƹ� ���̳� �Է��ϼ���."); 
-		System.out.println("�Է��Ͻ� ���� " + input + "�Դϴ�.");
+		String input = JOptionPane.showInputDialog("아무 값이나 입력하세요."); 
+		String input2 = JOptionPane.showInputDialog("2.아무 값이나 입력하세요."); 
+		System.out.println("입력하신 값은 " + input + "입니다.");
+		System.out.println("입력하신 값은 " + input2 + "입니다.");
 	}
 }
 
