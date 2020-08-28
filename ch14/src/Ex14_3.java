@@ -8,11 +8,11 @@ class Ex14_3 {
 		Function<String, String>    h  = f.andThen(g);
 		Function<Integer, Integer>  h2 = f.compose(g);
 
-		System.out.println(h.apply("FF")); // "FF" ¡æ 255 ¡æ "11111111"
-		System.out.println(h2.apply(2));   // 2 ¡æ "10" ¡æ 16
+		System.out.println(h.apply("FF")); // "FF" â†’ 255 â†’ "11111111"
+		System.out.println(h2.apply(2));   // 2 â†’ "10" â†’ 16
 
-		Function<String, String> f2 = x -> x; // Ç×µî ÇÔ¼ö(identity function)
-		System.out.println(f2.apply("AAA"));  // AAA°¡ ±×´ë·Î Ãâ·ÂµÊ
+		Function<String, String> f2 = x -> x; // í•­ë“± í•¨ìˆ˜(identity function)
+		System.out.println(f2.apply("AAA"));  // AAAê°€ ê·¸ëŒ€ë¡œ ì¶œë ¥ë¨
 
 		Predicate<Integer> p = i -> i < 100;
 		Predicate<Integer> q = i -> i < 200;
@@ -25,7 +25,7 @@ class Ex14_3 {
 		String str1 = "abc";
 		String str2 = "abc";
 		
-		// str1°ú str2°¡ °°ÀºÁö ºñ±³ÇÑ °á°ú¸¦ ¹İÈ¯
+		// str1ê³¼ str2ê°€ ê°™ì€ì§€ ë¹„êµí•œ ê²°ê³¼ë¥¼ ë°˜í™˜
 		Predicate<String> p2 = Predicate.isEqual(str1); 
 		boolean result = p2.test(str2);   
 		System.out.println(result);

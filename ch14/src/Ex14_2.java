@@ -6,9 +6,9 @@ class Ex14_2 {
 		Supplier<Integer>  s = ()-> (int)(Math.random()*100)+1;
 		Consumer<Integer>  c = i -> System.out.print(i+", "); 
 		Predicate<Integer> p = i -> i%2==0; 
-		Function<Integer, Integer> f = i -> i/10*10; // iÀÇ ÀÏÀÇ ÀÚ¸®¸¦ ¾ø¾Ø´Ù.
+		Function<Integer, Integer> f = i -> i/10*10; // iì˜ ì¼ì˜ ìë¦¬ë¥¼ ì—†ì•¤ë‹¤.
 		
-		List<Integer> list = new ArrayList<>();	
+		List<Integer> list = new ArrayList<>();
 		makeRandomList(s, list);
 		System.out.println(list);
 		printEvenNum(p, c, list);

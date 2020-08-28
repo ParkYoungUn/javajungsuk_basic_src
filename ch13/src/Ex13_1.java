@@ -4,7 +4,6 @@ class Ex13_1 {
 
 		Runnable r = new ThreadEx1_2();
 		Thread t2 = new Thread(r);	  // 생성자 Thread(Runnable target)
-
 		t1.start();
 		t2.start();
 	}
