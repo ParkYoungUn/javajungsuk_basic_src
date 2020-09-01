@@ -17,7 +17,6 @@ import java.util.List;
 public class TB_MemberDAO {
 	
     private static Connection conn;
-
     private PreparedStatement pstmt;
     private Statement stmt;
     private ResultSet rs;
@@ -40,10 +39,7 @@ public class TB_MemberDAO {
         }
     }
    
-       
-    /**
-    * 회원 등록하기
-    */
+    /** 회원 등록하기 */
     public int insertMember(TB_MemberDTO dto){
        
         int result=500; //내부 오류
@@ -59,8 +55,7 @@ public class TB_MemberDAO {
             pstmt.setString(3,dto.getM_date());
             pstmt.setString(4,dto.getM_phoneNum());
             pstmt.setString(5,dto.getM_addr());
-            
-           // pstmt.setString(6,dto.getM_registdate());
+
             int count = pstmt.executeUpdate();
             
             if (count == 0) {
@@ -79,9 +74,7 @@ public class TB_MemberDAO {
         return result;
     }
    
-    /**
-    * 회원번호에 해당하는 회원정보 보기
-    */
+    /** 회원번호에 해당하는 회원정보 보기*/
     public TB_MemberDTO getMember(String no){
     	TB_MemberDTO dto =null;
     	
@@ -100,7 +93,6 @@ public class TB_MemberDAO {
                 String m_phoneNum = rs.getString("m_phoneNum");
                 String m_addr = rs.getString("m_addr");
                 dto = new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr);
-                
             }
            
         } catch (Exception e) {
@@ -108,13 +100,10 @@ public class TB_MemberDAO {
         }finally{          
             dbClose();
         }      
-       
         return dto;
     }
  
-    /**
-    * 저장된 회원 목록 보기
-    */
+    /** 저장된 회원 목록 보기 */
     public List<TB_MemberDTO> getMemberList(){
         List<TB_MemberDTO> list = new ArrayList<TB_MemberDTO>();
        
@@ -131,8 +120,6 @@ public class TB_MemberDAO {
                  String m_date = rs.getString("m_date");
                  String m_phoneNum = rs.getString("m_phoneNum");
                  String m_addr = rs.getString("m_addr");
-                 //TB_MemberDTO m = new TB_MemberDTO();
-                 //m.setM_name(m_name);
                 list.add(new TB_MemberDTO(m_no, m_name, m_date, m_phoneNum, m_addr));
                 
             }
@@ -142,14 +129,10 @@ public class TB_MemberDAO {
         }finally{          
             dbClose();
         }  
-       
         return list;
     }
    
- 
-    /**
-    * 회원 수정
-    */
+    /** 회원 수정 */
     public boolean updateMember(TB_MemberDTO dto){
        
         boolean result = false;            
@@ -158,7 +141,6 @@ public class TB_MemberDAO {
            
             String sql = "update TB_Member set m_name =?, m_date= ?, m_phoneNum=?, m_addr=? where m_no = ?";
             pstmt = conn.prepareStatement(sql);
-       
             
             pstmt.setString(1,dto.getM_name());
             pstmt.setString(2,dto.getM_date());
@@ -183,9 +165,7 @@ public class TB_MemberDAO {
     }
    
    
-    /**
-    * 회원 삭제
-    */
+    /** 회원 삭제 */
     public boolean deleteMember(String m_no){        
         boolean result = false;            
         try {
@@ -212,7 +192,7 @@ public class TB_MemberDAO {
     }//deleteMember()--------------
    
    
-    /**DB연결 해제(닫기)*/
+    /** DB연결 해제(닫기)*/
     public void dbClose(){      
      
         if (rs != null) {
@@ -239,7 +219,6 @@ public class TB_MemberDAO {
             }
         }      
        
-           
         if (conn != null) {
             try {
                 conn.close();
@@ -250,5 +229,4 @@ public class TB_MemberDAO {
          
         conn = null;        
     }//dbClose()---------
-   
 }

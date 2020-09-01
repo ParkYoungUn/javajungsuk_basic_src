@@ -67,9 +67,9 @@ public class TB_MemberDTO {
 	
 	
 	public String toString() {
-		Date m_registdate = new Date();
+//		Date m_registdate = new Date();
 		Formatter fm = new Formatter();
-		String meminfo = fm.format("%5s\t  %-7s\t%-16s\t%-14s\t%-14s", m_no, m_name, m_date, m_phoneNum, m_addr, m_registdate).toString();
+		String meminfo = fm.format("%5s\t  %-7s\t%-16s\t%-14s\t%-14s", m_no, m_name, m_date, m_phoneNum, m_addr).toString();
 		return meminfo;
 	}
 	

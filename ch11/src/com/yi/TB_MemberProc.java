@@ -100,7 +100,6 @@ public class TB_MemberProc {
 			
 			System.out.println(dto.getInfo());
 			
-			
 			System.out.println("수정작업을 계속하시겠습니까?(Y/N)");
 			String input = scn.nextLine();
 			if(input.equalsIgnoreCase("y")){
@@ -126,22 +125,16 @@ public class TB_MemberProc {
 				boolean r = dao.updateMember(dto);
 				
 				if(r){
-					
 					System.out.println("회원의 정보가 다음과 같이 수정되었습니다.");
 					System.out.println(dto.getInfo());
-					
 				}else{
 					System.out.println("회원의 정보가 정상적으로 수정 되지 않았습니다.");
 				}
-				
 			}else{
 				System.out.println("수정 작업을 취소하였습니다.");
 			}
-			
 		}else{
-			
 			System.out.println("입력하신 회원등록번호에 해당하는 회원이 존재하지 않습니다.");
-			
 		}
 	}
 	
@@ -195,7 +188,6 @@ public class TB_MemberProc {
 				System.out.print("▶");
 			}
 		}
-		
 		return str;
 	}
 

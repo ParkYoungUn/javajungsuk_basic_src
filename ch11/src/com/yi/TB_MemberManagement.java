@@ -48,7 +48,9 @@ public class TB_MemberManagement {
 			} catch(InputMismatchException e) {
 				System.out.println("잘못된 입력입니다. !!");
 			}
-			
+		}	//while
+	}	//main()	
+}	// class MemberManagement
 //			int num=0;
 //			try {
 //				num = scn.nextInt();
@@ -77,7 +79,7 @@ public class TB_MemberManagement {
 //				System.exit(0); //프로그램 종료
 //					
 //			}//end switch()---------------
-		}//while---------------------		
+		//}//while---------------------		
 		
-	}//main()--------------	
-}//class MemberManagement
+	//}//main()--------------	
+//}//class MemberManagement

@@ -17,7 +17,7 @@ class Ex14_9 {
 		System.out.println("noEmptyStr="+noEmptyStr);
 		System.out.println("sWord="+ sWord.get());
 
-		// Stream<String[]>À» IntStreamÀ¸·Î º¯È¯
+		// Stream<String[]>ì„ IntStreamìœ¼ë¡œ ë³€í™˜
 		IntStream intStream1 = Stream.of(strArr).mapToInt(String::length);
 		IntStream intStream2 = Stream.of(strArr).mapToInt(String::length);
 		IntStream intStream3 = Stream.of(strArr).mapToInt(String::length);

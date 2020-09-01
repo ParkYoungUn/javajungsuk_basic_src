@@ -6,9 +6,9 @@ import static java.util.Comparator.*;
 
 class Student2 {
 	String name;
-	boolean isMale; // ¼ºº°
-	int hak;        // ÇĞ³â
-	int ban;        // ¹İ
+	boolean isMale; // ì„±ë³„
+	int hak;        // í•™ë…„
+	int ban;        // ë°˜
 	int score;
 
 	Student2(String name, boolean isMale, int hak, int ban, int score) { 
@@ -25,37 +25,37 @@ class Student2 {
 	int      getScore()   { return score;	}
 
 	public String toString() { 
-		return String.format("[%s, %s, %dÇĞ³â %d¹İ, %3dÁ¡]",
-			name, isMale ? "³²":"¿©", hak, ban, score); 
+		return String.format("[%s, %s, %dí•™ë…„ %dë°˜, %3dì ]",
+			name, isMale ? "ë‚¨":"ì—¬", hak, ban, score); 
 	}
-   // groupingBy()¿¡¼­ »ç¿ë
-	enum Level { HIGH, MID, LOW }  // ¼ºÀûÀ» »ó, Áß, ÇÏ ¼¼ ´Ü°è·Î ºĞ·ù
+   // groupingBy()ì—ì„œ ì‚¬ìš©
+	enum Level { HIGH, MID, LOW }  // ì„±ì ì„ ìƒ, ì¤‘, í•˜ ì„¸ ë‹¨ê³„ë¡œ ë¶„ë¥˜
 }
 
 class Ex14_10 {
 	public static void main(String[] args) {
 		Student2[] stuArr = {
-			new Student2("³ªÀÚ¹Ù", true,  1, 1, 300),	
-			new Student2("±èÁö¹Ì", false, 1, 1, 250),	
-			new Student2("±èÀÚ¹Ù", true,  1, 1, 200),	
-			new Student2("ÀÌÁö¹Ì", false, 1, 2, 150),	
-			new Student2("³²ÀÚ¹Ù", true,  1, 2, 100),	
-			new Student2("¾ÈÁö¹Ì", false, 1, 2,  50),	
-			new Student2("È²Áö¹Ì", false, 1, 3, 100),	
-			new Student2("°­Áö¹Ì", false, 1, 3, 150),	
-			new Student2("ÀÌÀÚ¹Ù", true,  1, 3, 200),	
-			new Student2("³ªÀÚ¹Ù", true,  2, 1, 300),	
-			new Student2("±èÁö¹Ì", false, 2, 1, 250),	
-			new Student2("±èÀÚ¹Ù", true,  2, 1, 200),	
-			new Student2("ÀÌÁö¹Ì", false, 2, 2, 150),	
-			new Student2("³²ÀÚ¹Ù", true,  2, 2, 100),	
-			new Student2("¾ÈÁö¹Ì", false, 2, 2,  50),	
-			new Student2("È²Áö¹Ì", false, 2, 3, 100),	
-			new Student2("°­Áö¹Ì", false, 2, 3, 150),	
-			new Student2("ÀÌÀÚ¹Ù", true,  2, 3, 200)	
+			new Student2("ë‚˜ìë°”", true,  1, 1, 300),	
+			new Student2("ê¹€ì§€ë¯¸", false, 1, 1, 250),	
+			new Student2("ê¹€ìë°”", true,  1, 1, 200),	
+			new Student2("ì´ì§€ë¯¸", false, 1, 2, 150),	
+			new Student2("ë‚¨ìë°”", true,  1, 2, 100),	
+			new Student2("ì•ˆì§€ë¯¸", false, 1, 2,  50),	
+			new Student2("í™©ì§€ë¯¸", false, 1, 3, 100),	
+			new Student2("ê°•ì§€ë¯¸", false, 1, 3, 150),	
+			new Student2("ì´ìë°”", true,  1, 3, 200),	
+			new Student2("ë‚˜ìë°”", true,  2, 1, 300),	
+			new Student2("ê¹€ì§€ë¯¸", false, 2, 1, 250),	
+			new Student2("ê¹€ìë°”", true,  2, 1, 200),	
+			new Student2("ì´ì§€ë¯¸", false, 2, 2, 150),	
+			new Student2("ë‚¨ìë°”", true,  2, 2, 100),	
+			new Student2("ì•ˆì§€ë¯¸", false, 2, 2,  50),	
+			new Student2("í™©ì§€ë¯¸", false, 2, 3, 100),	
+			new Student2("ê°•ì§€ë¯¸", false, 2, 3, 150),	
+			new Student2("ì´ìë°”", true,  2, 3, 200)	
 		};
 
-		System.out.printf("1. ´Ü¼øºĞÇÒ(¼ºº°·Î ºĞÇÒ)%n");
+		System.out.printf("1. ë‹¨ìˆœë¶„í• (ì„±ë³„ë¡œ ë¶„í• )%n");
 		Map<Boolean, List<Student2>> stuBySex =  Stream.of(stuArr)
 				.collect(partitioningBy(Student2::isMale));
 
@@ -65,20 +65,20 @@ class Ex14_10 {
 		for(Student2 s : maleStudent)   System.out.println(s);
 		for(Student2 s : femaleStudent) System.out.println(s);
 
-		System.out.printf("%n2. ´Ü¼øºĞÇÒ + Åë°è(¼ºº° ÇĞ»ı¼ö)%n");
+		System.out.printf("%n2. ë‹¨ìˆœë¶„í•  + í†µê³„(ì„±ë³„ í•™ìƒìˆ˜)%n");
 		Map<Boolean, Long> stuNumBySex = Stream.of(stuArr)
 				.collect(partitioningBy(Student2::isMale, counting()));
 
-		System.out.println("³²ÇĞ»ı ¼ö :"+ stuNumBySex.get(true));
-		System.out.println("¿©ÇĞ»ı ¼ö :"+ stuNumBySex.get(false));
+		System.out.println("ë‚¨í•™ìƒ ìˆ˜ :"+ stuNumBySex.get(true));
+		System.out.println("ì—¬í•™ìƒ ìˆ˜ :"+ stuNumBySex.get(false));
 
-		System.out.printf("%n3. ´Ü¼øºĞÇÒ + Åë°è(¼ºº° 1µî)%n");
+		System.out.printf("%n3. ë‹¨ìˆœë¶„í•  + í†µê³„(ì„±ë³„ 1ë“±)%n");
 		Map<Boolean, Optional<Student2>> topScoreBySex = Stream.of(stuArr)
 				.collect(partitioningBy(Student2::isMale, 
 					maxBy(comparingInt(Student2::getScore))
 				));
-		System.out.println("³²ÇĞ»ı 1µî :"+ topScoreBySex.get(true));
-		System.out.println("¿©ÇĞ»ı 1µî :"+ topScoreBySex.get(false));
+		System.out.println("ë‚¨í•™ìƒ 1ë“± :"+ topScoreBySex.get(true));
+		System.out.println("ì—¬í•™ìƒ 1ë“± :"+ topScoreBySex.get(false));
 
 		Map<Boolean, Student2> topScoreBySex2 = Stream.of(stuArr)
 			.collect(partitioningBy(Student2::isMale, 
@@ -87,10 +87,10 @@ class Ex14_10 {
 				)
 			));
 
-		System.out.println("³²ÇĞ»ı 1µî :"+ topScoreBySex2.get(true));
-		System.out.println("¿©ÇĞ»ı 1µî :"+ topScoreBySex2.get(false));
+		System.out.println("ë‚¨í•™ìƒ 1ë“± :"+ topScoreBySex2.get(true));
+		System.out.println("ì—¬í•™ìƒ 1ë“± :"+ topScoreBySex2.get(false));
 		
-		System.out.printf("%n4. ´ÙÁßºĞÇÒ(¼ºº° ºÒÇÕ°İÀÚ, 100Á¡ ÀÌÇÏ)%n");
+		System.out.printf("%n4. ë‹¤ì¤‘ë¶„í• (ì„±ë³„ ë¶ˆí•©ê²©ì, 100ì  ì´í•˜)%n");
 
 		Map<Boolean, Map<Boolean, List<Student2>>> failedStuBySex = 
 			Stream.of(stuArr).collect(partitioningBy(Student2::isMale, 
