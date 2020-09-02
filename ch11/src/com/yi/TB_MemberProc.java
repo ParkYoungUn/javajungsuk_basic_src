@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-public class TB_MemberProc { 
+public class TB_MemberProc {
 	
 	TB_MemberDAO dao;
 	
