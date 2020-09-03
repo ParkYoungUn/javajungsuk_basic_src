@@ -2,7 +2,7 @@ import java.net.*;
 
 class Ex16_2 {
 	public static void main(String args[]) throws Exception {
-		URL url = new URL("http:/ /www.codechobo.com:80/sample/" + "hello.html?referer=codechobo#index1");
+		URL url = new URL("http://localhost:8080/chap15/list.jsp");
 
 		System.out.println("url.getAuthority():"+ url.getAuthority());
 		System.out.println("url.getContent():"+ url.getContent());

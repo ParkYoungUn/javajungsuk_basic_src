@@ -7,7 +7,7 @@ public class FileStream {
 	
 	/** 디렉토리 생성*/
 	 public void File_Mkdir() {
-		String path = "C:\\Users\\lenovo\\eclipse-workspace\\javajungsuk_basic_src\\ch15\\src\\ch15\\새폴더"; //폴더 경로
+		String path = "C:\\Users\\lenovo\\eclipse-workspace\\javajungsuk_basic_src\\ch15\\src\\ch15\\새a"; //폴더 경로
 		File Folder = new File(path);
 
 		// 해당 디렉토리가 없을경우 디렉토리를 생성합니다.

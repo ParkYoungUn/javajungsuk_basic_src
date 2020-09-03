@@ -3,7 +3,7 @@ import java.util.*;
 
 class Ex16_1 {
 	public static void main(String[] args) {
-		InetAddress ip = null;
+		InetAddress ip = null;	//ip나 host 정보를 담기 위한것
 		InetAddress[] ipArr = null;
 
 		try {

@@ -66,7 +66,7 @@ public class TB_MemberDAO {
             }
             
             
-        } catch (Exception e) {        
+        } catch (Exception e) {   
             System.out.println("예외발생:insertMember()=> "+e.getMessage());
         }finally{          
             dbClose();

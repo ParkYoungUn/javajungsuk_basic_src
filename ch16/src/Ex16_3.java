@@ -2,7 +2,7 @@ import java.net.*;
 
 public class Ex16_3 {
 	public static void main(String args[]) {
-		String address = "http:/ /www.codechobo.com/sample/hello.html";
+		String address = "http://localhost:8080/chap15/list.jsp";
 
 		try {
 			URL url = new URL(address);

@@ -6,7 +6,7 @@ public class Ex16_5 {
 		URL url = null;
 		InputStream in = null;
 		FileOutputStream out = null;
-	    String address = "http://www.codechobo.com/book/src/javabasic_src.zip";
+	    String address = "https://github.com/castello/javajungsuk3/blob/master/java_jungsuk3e_src_20170601.zip";
 
 		int ch = 0;
 

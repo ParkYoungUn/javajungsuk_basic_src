@@ -36,8 +36,6 @@ public static void main(String[] args) {
 			switch (input) {
 			case "mkdir"	  : fs.File_Mkdir(); break;
 			case "rmdir" : fs.File_dirDelete(null);;; break;
-			case "delete" : fs.deleteMember(); break;
-			case "update" : fs.updateMember(); break;
 			case "exit"   : 
 				System.out.println("프로그램 종료.");
 				System.exit(0);

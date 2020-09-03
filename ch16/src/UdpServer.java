@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class UdpServer {
 	public void start() throws IOException {
-		// Æ÷Æ® 7777¹øÀ» »ç¿ëÇÏ´Â ¼ÒÄÏÀ» »ı¼ºÇÑ´Ù.
+		// í¬íŠ¸ 7777ë²ˆì„ ì‚¬ìš©í•˜ëŠ” ì†Œì¼“ì„ ìƒì„±í•œë‹¤.
 		DatagramSocket socket = new DatagramSocket(7777);
 		DatagramPacket inPacket, outPacket;
 
@@ -13,20 +13,20 @@ public class UdpServer {
 		byte[] outMsg;
 
 		while(true) {
-			// µ¥ÀÌÅÍ¸¦ ¼ö½ÅÇÏ±â À§ÇÑ ÆĞÅ¶À» »ı¼ºÇÑ´Ù.
+			// ë°ì´í„°ë¥¼ ìˆ˜ì‹ í•˜ê¸° ìœ„í•œ íŒ¨í‚·ì„ ìƒì„±í•œë‹¤.
 			inPacket = new DatagramPacket(inMsg, inMsg.length);
-			socket.receive(inPacket); // ÆĞÅ¶À» ÅëÇØ µ¥ÀÌÅÍ¸¦ ¼ö½Å(receive)ÇÑ´Ù.
+			socket.receive(inPacket); // íŒ¨í‚·ì„ í†µí•´ ë°ì´í„°ë¥¼ ìˆ˜ì‹ (receive)í•œë‹¤.
 
-			// ¼ö½ÅÇÑ ÆĞÅ¶À¸·Î ºÎÅÍ clientÀÇ IPÁÖ¼Ò¿Í Port¸¦ ¾ò´Â´Ù.
+			// ìˆ˜ì‹ í•œ íŒ¨í‚·ìœ¼ë¡œ ë¶€í„° clientì˜ IPì£¼ì†Œì™€ Portë¥¼ ì–»ëŠ”ë‹¤.
 			InetAddress address = inPacket.getAddress();
 			int port = inPacket.getPort();
 
-			// ¼­¹öÀÇ ÇöÀç ½Ã°£À» ½ÃºĞÃÊ ÇüÅÂ([hh:mm:ss])·Î ¹İÈ¯ÇÑ´Ù.			
+			// ì„œë²„ì˜ í˜„ì¬ ì‹œê°„ì„ ì‹œë¶„ì´ˆ í˜•íƒœ([hh:mm:ss])ë¡œ ë°˜í™˜í•œë‹¤.			
 			SimpleDateFormat sdf = new SimpleDateFormat("[hh:mm:ss]");
 			String time = sdf.format(new Date());
-			outMsg = time.getBytes(); // timeÀ» byte¹è¿­·Î º¯È¯ÇÑ´Ù.
+			outMsg = time.getBytes(); // timeì„ byteë°°ì—´ë¡œ ë³€í™˜í•œë‹¤.
 
-			// ÆĞÅ¶À» »ı¼ºÇØ¼­ client¿¡°Ô Àü¼Û(send)ÇÑ´Ù.
+			// íŒ¨í‚·ì„ ìƒì„±í•´ì„œ clientì—ê²Œ ì „ì†¡(send)í•œë‹¤.
 			outPacket = new DatagramPacket(outMsg, outMsg.length, address, port);
 			socket.send(outPacket);
 		}
@@ -34,7 +34,7 @@ public class UdpServer {
 
 	public static void main(String args[]) {
 		try {  
-			new UdpServer().start();  // UDP¼­¹ö¸¦ ½ÇÇà½ÃÅ²´Ù.
+			new UdpServer().start();  // UDPì„œë²„ë¥¼ ì‹¤í–‰ì‹œí‚¨ë‹¤.
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

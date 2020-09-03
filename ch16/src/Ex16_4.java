@@ -5,7 +5,7 @@ public class Ex16_4 {
 	public static void  main(String args[]) {
 		URL url = null;
 		BufferedReader input = null;
-		String address = "http:/ /www.codechobo.com/sample/hello.html";
+		String address = "http://localhost:8080/chap15/list.jsp";
 		String line = "";
 
 		try {

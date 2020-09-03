@@ -6,15 +6,15 @@ public class UdpClient {
 		DatagramSocket datagramSocket = new DatagramSocket();
 		InetAddress    serverAddress  = InetAddress.getByName("127.0.0.1");
 
-		// µ¥ÀÌÅÍ°¡ ÀúÀåµÉ °ø°£À¸·Î byte¹è¿­À» »ı¼ºÇÑ´Ù.
+		// ë°ì´í„°ê°€ ì €ì¥ë  ê³µê°„ìœ¼ë¡œ byteë°°ì—´ì„ ìƒì„±í•œë‹¤.
 		byte[] msg = new byte[100];
 
 		DatagramPacket outPacket =
                         new DatagramPacket(msg, 1, serverAddress, 7777);
 		DatagramPacket inPacket = new DatagramPacket(msg, msg.length);
 
-		datagramSocket.send(outPacket);    // DatagramPacketÀ» Àü¼ÛÇÑ´Ù.
-		datagramSocket.receive(inPacket);  // DatagramPacketÀ» ¼ö½ÅÇÑ´Ù.
+		datagramSocket.send(outPacket);    // DatagramPacketì„ ì „ì†¡í•œë‹¤.
+		datagramSocket.receive(inPacket);  // DatagramPacketì„ ìˆ˜ì‹ í•œë‹¤.
 
 		System.out.println("current server time :"
                                       + new String(inPacket.getData()));
